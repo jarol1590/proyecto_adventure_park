@@ -21,6 +21,15 @@ export class FoodVentas extends Entity {
   })
   total: number;
 
+  @property({
+    type: 'date',
+  })
+  descripcion?: string;
+
+  @property({
+    type: 'number',
+  })
+  standComidasId?: number;
 
   constructor(data?: Partial<FoodVentas>) {
     super(data);

@@ -27,6 +27,15 @@ export class Usuario extends Entity {
   })
   email: string;
 
+  @property({
+    type: 'number',
+  })
+  rolesId?: number;
+
+  @property({
+    type: 'number',
+  })
+  parqueId?: number;
 
   constructor(data?: Partial<Usuario>) {
     super(data);

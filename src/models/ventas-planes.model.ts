@@ -27,6 +27,10 @@ export class VentasPlanes extends Entity {
   })
   total: number;
 
+  @property({
+    type: 'number',
+  })
+  planesId?: number;
 
   constructor(data?: Partial<VentasPlanes>) {
     super(data);

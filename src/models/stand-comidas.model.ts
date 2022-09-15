@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {FoodVentas} from './food-ventas.model';
 
 @model()
 export class StandComidas extends Entity {
@@ -27,6 +28,13 @@ export class StandComidas extends Entity {
   })
   menu: string;
 
+  @property({
+    type: 'number',
+  })
+  zonaId?: number;
+
+  @hasMany(() => FoodVentas)
+  foodVentas: FoodVentas[];
 
   constructor(data?: Partial<StandComidas>) {
     super(data);
