@@ -1,9 +1,10 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
   Filter,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
   del,
@@ -13,11 +14,11 @@ import {
   param,
   patch,
   post,
-  requestBody,
+  requestBody
 } from '@loopback/rest';
 import {
   Roles,
-  Usuario,
+  Usuario
 } from '../models';
 import {RolesRepository} from '../repositories';
 
@@ -44,7 +45,7 @@ export class RolesUsuarioController {
   ): Promise<Usuario[]> {
     return this.rolesRepository.usuarios(id).find(filter);
   }
-
+  @authenticate("admin")
   @post('/roles/{id}/usuarios', {
     responses: {
       '200': {
