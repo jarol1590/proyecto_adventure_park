@@ -13,3 +13,8 @@ export * from './zona-atracciones.controller';
 export * from './zona-parque.controller';
 export * from './zona-stand-comidas.controller';
 
+export * from './venta-planes.controller';
+export * from './planes.controller';
+export * from './department.controller';
+export * from './city.controller';
+export * from './parques.controller';

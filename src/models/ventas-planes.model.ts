@@ -11,26 +11,31 @@ export class VentasPlanes extends Entity {
 
   @property({
     type: 'date',
-    required: true,
   })
-  fecha: string;
+  fecha?: string;
+
+  @property({
+    type: 'number',
+  })
+  impuestos?: number;
+
+  @property({
+    type: 'number',
+
+  })
+  total?: number;
 
   @property({
     type: 'number',
     required: true,
   })
-  impuestos: number;
+  cant: number;
 
   @property({
     type: 'number',
-    required: true,
+    require: true
   })
-  total: number;
-
-  @property({
-    type: 'number',
-  })
-  planesId?: number;
+  planesId: number;
 
   constructor(data?: Partial<VentasPlanes>) {
     super(data);
