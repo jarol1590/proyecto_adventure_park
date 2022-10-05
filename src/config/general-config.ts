@@ -6,3 +6,4 @@ export namespace GeneralConfig {
   export const metodo_validar_jwt = "validate-token";
   export const adminRolId = "632e5522a08b4c6af8806057";
 }
+

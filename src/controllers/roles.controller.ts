@@ -15,13 +15,14 @@ import {
 import {Roles} from '../models';
 import {RolesRepository} from '../repositories';
 
+@authenticate("admin")
 export class RolesController {
   constructor(
     @repository(RolesRepository)
     public rolesRepository: RolesRepository,
   ) { }
 
-  @authenticate("admin")
+
   @post('/roles')
   @response(200, {
     description: 'Roles model instance',
@@ -53,7 +54,7 @@ export class RolesController {
   ): Promise<Count> {
     return this.rolesRepository.count(where);
   }
-
+  @authenticate.skip() //Salta la proteccion de la estrategia
   @get('/roles')
   @response(200, {
     description: 'Array of Roles model instances',
