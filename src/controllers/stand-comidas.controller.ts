@@ -1,30 +1,25 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
 import {StandComidas} from '../models';
 import {StandComidasRepository} from '../repositories';
-
+@authenticate("admin")
 export class StandComidasController {
   constructor(
     @repository(StandComidasRepository)
-    public standComidasRepository : StandComidasRepository,
-  ) {}
+    public standComidasRepository: StandComidasRepository,
+  ) { }
 
   @post('/stand-comidas')
   @response(200, {
