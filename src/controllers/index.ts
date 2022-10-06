@@ -18,3 +18,7 @@ export * from './planes.controller';
 export * from './department.controller';
 export * from './city.controller';
 export * from './parques.controller';
+export * from './atracciones.controller';
+export * from './usuarios.controller';
+export * from './zona.controller';
+export * from './stand-comidas.controller';

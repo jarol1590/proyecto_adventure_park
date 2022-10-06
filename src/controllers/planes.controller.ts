@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -14,7 +15,7 @@ import {
 import {Planes} from '../models';
 import {PlanesRepository} from '../repositories';
 var now = require("date-now");
-
+@authenticate("admin")
 export class PlanesController {
   constructor(
     @repository(PlanesRepository)
