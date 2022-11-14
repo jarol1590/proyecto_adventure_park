@@ -142,4 +142,28 @@ export class CityController {
   async deleteById(@param.path.number('id') id: number): Promise<void> {
     await this.ciudadRepository.deleteById(id);
   }
+
+  @get('/ciudades/{postal}')
+  @response(200, {
+    description: 'Ciudad model instance',
+    content: {
+      'application/json': {
+        schema: getModelSchemaRef(Ciudad, {includeRelations: true}),
+      },
+    },
+  })
+  async findByPostal(
+    @param.path.number('postal') postal: string,
+    @param.filter(Ciudad, {exclude: 'where'}) filter?: FilterExcludingWhere<Ciudad>
+  ): Promise<Ciudad | null> {
+   
+     return  this.ciudadRepository.findOne({
+      where:{
+        postal: postal
+      }
+
+    });
+   
+  }
+
 }

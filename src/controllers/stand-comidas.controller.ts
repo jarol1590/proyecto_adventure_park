@@ -14,7 +14,7 @@ import {
 } from '@loopback/rest';
 import {StandComidas} from '../models';
 import {StandComidasRepository} from '../repositories';
-@authenticate("admin")
+@authenticate("admin", "registros")
 export class StandComidasController {
   constructor(
     @repository(StandComidasRepository)
