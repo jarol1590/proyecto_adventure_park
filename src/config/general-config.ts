@@ -7,6 +7,10 @@ export namespace GeneralConfig {
   export const adminRolId = "632e5522a08b4c6af8806057";
   export const yuyuRolId = "632e57d1a08b4c6af8806059";
   export const registrosRolId = "";
+  export const carpetaArchivosParques = "../../archivos/parques";
+
+  export const campoDeParques = 'file';
+  export const extensionesImagenes = ['.SVG', '.PNG', '.JPG', '.JPEG'];
 
 }
 

@@ -22,3 +22,4 @@ export * from './atracciones.controller';
 export * from './usuarios.controller';
 export * from './zona.controller';
 export * from './stand-comidas.controller';
+export * from './archivos.controller';
