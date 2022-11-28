@@ -1,4 +1,4 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, hasMany, model, property} from '@loopback/repository';
 import {FoodVentas} from './food-ventas.model';
 
 @model()
@@ -27,6 +27,12 @@ export class StandComidas extends Entity {
     required: true,
   })
   menu: string;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  valor: number;
 
   @property({
     type: 'number',
