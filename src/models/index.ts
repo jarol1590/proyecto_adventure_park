@@ -10,7 +10,4 @@ export * from './usuario.model';
 export * from './ventas-planes.model';
 export * from './zona.model';
 
-<<<<<<< HEAD
-=======
 
->>>>>>> bfe71b0442eb3c0e945f940d8cfb0397379e5720
