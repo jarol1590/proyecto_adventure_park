@@ -24,8 +24,9 @@ export class Ciudad extends Entity {
 
   @property({
     type: 'number',
+    required: true
   })
-  departamentoId?: number;
+  departamentoId: number;
 
   @hasMany(() => Parque)
   parques: Parque[];
