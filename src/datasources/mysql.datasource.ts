@@ -8,8 +8,8 @@ const config = {
   host: 'localhost',
   port: 3306,
   user: 'root',
-  password: '9289',
-  database: 'adventure_park'
+  password: 'Luis 2003',
+  database: 'adventurebd'
 };
 
 // Observe application's life cycle to disconnect the datasource when
