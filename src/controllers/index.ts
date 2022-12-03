@@ -23,3 +23,4 @@ export * from './usuarios.controller';
 export * from './zona.controller';
 export * from './stand-comidas.controller';
 export * from './archivos.controller';
+export * from './ventas-planes-planes.controller';
