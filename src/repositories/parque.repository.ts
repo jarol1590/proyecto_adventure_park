@@ -1,10 +1,11 @@
 import {inject, Getter} from '@loopback/core';
-import {DefaultCrudRepository, repository, HasManyRepositoryFactory} from '@loopback/repository';
+import {DefaultCrudRepository, repository, HasManyRepositoryFactory, BelongsToAccessor} from '@loopback/repository';
 import {MysqlDataSource} from '../datasources';
-import {Parque, ParqueRelations, Usuario, Planes, Zona} from '../models';
+import {Parque, ParqueRelations, Usuario, Planes, Zona, Ciudad} from '../models';
 import {UsuarioRepository} from './usuario.repository';
 import {PlanesRepository} from './planes.repository';
 import {ZonaRepository} from './zona.repository';
+import {CiudadRepository} from './ciudad.repository';
 
 export class ParqueRepository extends DefaultCrudRepository<
   Parque,
@@ -18,10 +19,14 @@ export class ParqueRepository extends DefaultCrudRepository<
 
   public readonly zonas: HasManyRepositoryFactory<Zona, typeof Parque.prototype.id>;
 
+  public readonly ciudad: BelongsToAccessor<Ciudad, typeof Parque.prototype.id>;
+
   constructor(
-    @inject('datasources.mysql') dataSource: MysqlDataSource, @repository.getter('UsuarioRepository') protected usuarioRepositoryGetter: Getter<UsuarioRepository>, @repository.getter('PlanesRepository') protected planesRepositoryGetter: Getter<PlanesRepository>, @repository.getter('ZonaRepository') protected zonaRepositoryGetter: Getter<ZonaRepository>,
+    @inject('datasources.mysql') dataSource: MysqlDataSource, @repository.getter('UsuarioRepository') protected usuarioRepositoryGetter: Getter<UsuarioRepository>, @repository.getter('PlanesRepository') protected planesRepositoryGetter: Getter<PlanesRepository>, @repository.getter('ZonaRepository') protected zonaRepositoryGetter: Getter<ZonaRepository>, @repository.getter('CiudadRepository') protected ciudadRepositoryGetter: Getter<CiudadRepository>,
   ) {
     super(Parque, dataSource);
+    this.ciudad = this.createBelongsToAccessorFor('ciudad', ciudadRepositoryGetter,);
+    this.registerInclusionResolver('ciudad', this.ciudad.inclusionResolver);
     this.zonas = this.createHasManyRepositoryFactoryFor('zonas', zonaRepositoryGetter,);
     this.registerInclusionResolver('zonas', this.zonas.inclusionResolver);
     this.planes = this.createHasManyRepositoryFactoryFor('planes', planesRepositoryGetter,);

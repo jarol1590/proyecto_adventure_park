@@ -1,6 +1,7 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
-import {Usuario} from './usuario.model';
+import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
+import {Ciudad} from './ciudad.model';
 import {Planes} from './planes.model';
+import {Usuario} from './usuario.model';
 import {Zona} from './zona.model';
 
 @model()
@@ -62,10 +63,8 @@ export class Parque extends Entity {
   @hasMany(() => Usuario)
   usuarios: Usuario[];
 
-  @property({
-    type: 'number',
-  })
-  ciudadId?: number;
+  @belongsTo(() => Ciudad)
+  ciudadId: number;
 
   @hasMany(() => Planes)
   planes: Planes[];

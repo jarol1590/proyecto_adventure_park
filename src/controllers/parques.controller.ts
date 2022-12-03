@@ -52,7 +52,7 @@ export class ParquesController {
   ): Promise<Count> {
     return this.parqueRepository.count(where);
   }
-
+  @authenticate.skip()
   @get('/parques')
   @response(200, {
     description: 'Array of Parque model instances',
@@ -89,7 +89,7 @@ export class ParquesController {
   ): Promise<Count> {
     return this.parqueRepository.updateAll(parque, where);
   }
-
+  @authenticate.skip()
   @get('/parques/{id}')
   @response(200, {
     description: 'Parque model instance',

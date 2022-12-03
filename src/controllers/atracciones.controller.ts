@@ -52,7 +52,7 @@ export class AtraccionesController {
   ): Promise<Count> {
     return this.atraccionesRepository.count(where);
   }
-
+  @authenticate.skip()
   @get('/atracciones')
   @response(200, {
     description: 'Array of Atracciones model instances',
@@ -89,7 +89,7 @@ export class AtraccionesController {
   ): Promise<Count> {
     return this.atraccionesRepository.updateAll(atracciones, where);
   }
-
+  @authenticate.skip()
   @get('/atracciones/{id}')
   @response(200, {
     description: 'Atracciones model instance',

@@ -1,4 +1,3 @@
-import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -14,7 +13,7 @@ import {
 } from '@loopback/rest';
 import {Ciudad} from '../models';
 import {CiudadRepository} from '../repositories';
-@authenticate("admin")
+//@authenticate("admin")
 export class CityController {
   constructor(
     @repository(CiudadRepository)

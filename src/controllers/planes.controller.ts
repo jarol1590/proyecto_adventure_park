@@ -42,7 +42,7 @@ export class PlanesController {
   ): Promise<Planes> {
     return this.planesRepository.create(planes);
   }
-
+  @authenticate.skip()
   @get('/planes/count')
   @response(200, {
     description: 'Planes model count',
@@ -53,7 +53,7 @@ export class PlanesController {
   ): Promise<Count> {
     return this.planesRepository.count(where);
   }
-
+  @authenticate.skip()
   @get('/planes')
   @response(200, {
     description: 'Array of Planes model instances',
@@ -90,7 +90,7 @@ export class PlanesController {
   ): Promise<Count> {
     return this.planesRepository.updateAll(planes, where);
   }
-
+  @authenticate.skip()
   @get('/planes/{id}')
   @response(200, {
     description: 'Planes model instance',
